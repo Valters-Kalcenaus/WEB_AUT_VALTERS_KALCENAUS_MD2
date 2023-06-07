@@ -12,6 +12,7 @@ describe("CURAHealthcareService", () => {
     });
 
     it("Make an Appointment", () =>{
+      //Data Input
       HomePage.makeAppointmentButton.click();
       LoginPage.username.type("John Doe");
       LoginPage.password.type("ThisIsNotAPassword");
@@ -24,6 +25,7 @@ describe("CURAHealthcareService", () => {
       AppointmentPage.appointmentSection.click("right");
       AppointmentPage.commentBox.type("CURA Healthcare Service");
       AppointmentPage.bookAppointmentButton.click();
+      //Validation
       SummaryPage.facilityText.should("have.text", "Seoul CURA Healthcare Center");
       SummaryPage.applyForReadmissionText.should("have.text", "Yes");
       SummaryPage.healthcareProgramText.should("have.text", "Medicaid");
@@ -39,6 +41,7 @@ describe("CURAHealthcareService", () => {
       AppointmentPage.menuButton.click();
       AppointmentPage.sideMenu.should("have.class", "active");
       AppointmentPage.historyOption.click()
+      //Validation
       HistoryPage.historyField.should("have.text", "No appointment.")
     });
   });
